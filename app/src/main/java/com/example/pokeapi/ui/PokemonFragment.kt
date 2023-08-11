@@ -1,24 +1,22 @@
 package com.example.pokeapi.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.example.pokeapi.R
 import com.example.pokeapi.core.Resource
+import com.example.pokeapi.data.model.Pokemon
 import com.example.pokeapi.data.remote.PokemonDataSource
 import com.example.pokeapi.databinding.FragmentPokemonBinding
 import com.example.pokeapi.domain.PokemonRepositoryImp
 import com.example.pokeapi.domain.RetrofitClient
 import com.example.pokeapi.presentation.PokemonViewModel
-import androidx.navigation.fragment.findNavController
-import com.example.pokeapi.data.model.Pokemon
 
 
-class PokemonFragment : Fragment() {
+class PokemonFragment : Fragment(R.layout.fragment_pokemon) {
     private lateinit var binding: FragmentPokemonBinding
     private lateinit var pokemonAdapter: PokemonAdapter
     private val pokemons = mutableListOf<Pokemon>()
