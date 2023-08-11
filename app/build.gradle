@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.dogapi'
+    namespace 'com.example.pokeapi'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.dogapi"
+        applicationId "com.example.pokeapi"
         minSdk 27
         targetSdk 33
         versionCode 1
@@ -16,7 +16,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -65,4 +67,7 @@ dependencies {
 
     //Utils
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

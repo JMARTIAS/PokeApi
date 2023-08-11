@@ -2,7 +2,7 @@ package com.example.pokeapi.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.dogapi.R
+import com.example.pokeapi.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
