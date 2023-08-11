@@ -10,6 +10,4 @@
         android:label="fragment_pokemon"
         tools:layout="@layout/fragment_pokemon"/>
 
-
-
 </navigation>
