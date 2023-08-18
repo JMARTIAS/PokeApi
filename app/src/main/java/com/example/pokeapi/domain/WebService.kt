@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface WebService {
-    @GET("pokemon/?limit=151")
+    @GET("pokemon/?limit=2")
     suspend fun getPokemonResponse(): PokemonResponse
 
     @GET("pokemon/{name}")
