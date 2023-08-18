@@ -5,8 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.pokeapi.R
 import com.example.pokeapi.core.Resource
@@ -16,6 +14,7 @@ import com.example.pokeapi.databinding.FragmentPokemonBinding
 import com.example.pokeapi.domain.PokemonRepositoryImp
 import com.example.pokeapi.domain.RetrofitClient
 import com.example.pokeapi.presentation.PokemonViewModel
+import androidx.navigation.fragment.findNavController
 
 
 class PokemonFragment : Fragment(R.layout.fragment_pokemon) {
@@ -63,7 +62,7 @@ class PokemonFragment : Fragment(R.layout.fragment_pokemon) {
     }
 
     private fun onItemSelected(pokemon: Pokemon){
-        val action = PokemonDetailFragment.fragmentPokemonDetailToPokemonDetailFragment(
+        val action = PokemonFragmentDirections.actionPokemonListFragmentToPokemonDetailFragment(
             pokemon.name
         )
         findNavController().navigate(action)

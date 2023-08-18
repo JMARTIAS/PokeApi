@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Movie Title"
+        android:text="Pokemon Detail"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
