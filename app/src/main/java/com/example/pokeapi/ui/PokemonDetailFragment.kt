@@ -33,8 +33,13 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
         super.onViewCreated(view, savedInstanceState)
         binding= FragmentPokemonDetailBinding.bind(view)
         binding.textView2.setText(args.pokemonName)
+        var hp: Int=0
+        var defense: Int=0
+        var attack: Int=0
+        var types: String=""
+        var weight: Int=0
 
-
+        var typses: String=""
         viewModel.fetchPokemonDetails(args.pokemonName).observe(viewLifecycleOwner, Observer {
             when(it) {
                 is Resource.Loading -> {
@@ -43,12 +48,25 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
                 is Resource.Success -> {
                     Picasso.get().load(it.data.sprites.front_default).into(binding.imgPokemon)
 
+                    for (elem in it.data.types) {
+                        types= elem.type.name+" "+types
+                    }
+                    binding.txtElementValue.setText(types)
+                    weight=it.data.weight
+                    binding.txtWeightValue.setText(weight)
+                    hp=it.data.stats.get(0).baseStat
+                    binding.txtHpValue.setText(hp)
+                    attack=it.data.stats.get(1).baseStat
+                    binding.txtAttackValue.setText(attack)
+                    defense=it.data.stats.get(2).baseStat
+                    binding.txtDefenseValue.setText(defense)
                 }
                 is Resource.Failure -> {
 /*                    binding.pokemonLoadingRecycler.visibility=View.GONE*/
                 }
 
             }
+
         })
     }
 }

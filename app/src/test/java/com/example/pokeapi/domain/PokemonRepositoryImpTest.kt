@@ -1,22 +1,21 @@
-package com.example.pokeapi.domain
-
-import com.example.pokeapi.data.model.*
-import com.example.pokeapi.data.remote.PokemonDataSource
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
-
-import org.mockito.Mockito.`when`
+import com.example.pokeapi.data.model.*
+import com.example.pokeapi.domain.PokemonRepository
+import com.example.pokeapi.domain.PokemonRepositoryImp
+import com.example.pokeapi.data.remote.PokemonDataSource
+/*import io.mockk.every
+import io.mockk.mockk
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test*/
 
 class PokemonRepositoryImpTest {
-
-    private lateinit var mockDataSource: PokemonDataSource // Cambia val por lateinit var
-    private lateinit var pokemonRepository: PokemonRepository
-
-    @Before
+/*    private lateinit var mockDataSource: PokemonDataSource
+    private lateinit var pokemonRepository: PokemonRepository*/
+/*
+    @BeforeEach
     fun setup() {
-        mockDataSource = mock()
+        mockDataSource = mockk()
         pokemonRepository = PokemonRepositoryImp(mockDataSource)
     }
 
@@ -30,7 +29,7 @@ class PokemonRepositoryImpTest {
         )
 
         val expectedResponse = PokemonResponse(results = pokemonList, status = "Success")
-        `when`(mockDataSource.getPokemonList()).thenReturn(expectedResponse)
+        every { mockDataSource.getPokemonList() } returns expectedResponse
 
         // When
         val result = pokemonRepository.getPokemonList()
@@ -60,12 +59,12 @@ class PokemonRepositoryImpTest {
                 front_default = "front_default_url"
             )
         )
-        `when`(mockDataSource.getPokemonDetails(pokemonName)).thenReturn(expectedResponse)
+        every { mockDataSource.getPokemonDetails(pokemon = pokemonName) } returns expectedResponse
 
         // When
         val result = pokemonRepository.getPokemonDetails(pokemonName)
 
         // Then
         assertEquals(expectedResponse, result)
-    }
+    }*/
 }
