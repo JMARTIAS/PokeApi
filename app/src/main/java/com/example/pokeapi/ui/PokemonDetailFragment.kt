@@ -38,6 +38,7 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
         var attack: Int=0
         var types: String=""
         var weight: Int=0
+        var moves: String=""
 
         var typses: String=""
         viewModel.fetchPokemonDetails(args.pokemonName).observe(viewLifecycleOwner, Observer {
@@ -56,10 +57,16 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
                     binding.txtWeightValue.setText(weight)
                     hp=it.data.stats.get(0).baseStat
                     binding.txtHpValue.setText(hp)
+                    it.data.stats.get(0).stat.name
                     attack=it.data.stats.get(1).baseStat
                     binding.txtAttackValue.setText(attack)
                     defense=it.data.stats.get(2).baseStat
                     binding.txtDefenseValue.setText(defense)
+
+                    for (elem in it.data.moves) {
+                        moves= elem.move.name+" "+moves
+                    }
+                    binding.txtMovesNames.setText(moves)
                 }
                 is Resource.Failure -> {
 /*                    binding.pokemonLoadingRecycler.visibility=View.GONE*/
