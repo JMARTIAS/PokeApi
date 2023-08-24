@@ -46,9 +46,9 @@ class PokemonDetailFragment : Fragment(R.layout.fragment_pokemon_detail) {
                     binding.txtElementValue.text = types
                     binding.txtHeightValue.text = pokemon.height.toString()
                     binding.txtWeightValue.text = pokemon.weight.toString()
-                    binding.txtHpValue.text = pokemon.stats[0].baseStat.toString()
-                    binding.txtAttackValue.text = pokemon.stats[1].baseStat.toString()
-                    binding.txtDefenseValue.text = pokemon.stats[2].baseStat.toString()
+                    binding.txtHpValue.text = pokemon.stats[0].base_stat.toString()
+                    binding.txtAttackValue.text = pokemon.stats[1].base_stat.toString()
+                    binding.txtDefenseValue.text = pokemon.stats[2].base_stat.toString()
 
                     val moves = pokemon.moves.joinToString(" ,") { it.move.name }
                     binding.txtMovesNames.text = moves

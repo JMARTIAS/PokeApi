@@ -128,7 +128,7 @@ data class Pokemon(
     data class PokemonStat(
         val stat: NamedApiResource,
         val effort: Int,
-        val baseStat: Int
+        val base_stat: Int
     )
 
     data class PokemonType(
