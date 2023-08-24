@@ -1,26 +1,33 @@
-import kotlinx.coroutines.runBlocking
-import com.example.pokeapi.data.model.*
-import com.example.pokeapi.domain.PokemonRepository
-import com.example.pokeapi.domain.PokemonRepositoryImp
+package com.example.pokeapi.domain
+
+import com.example.pokeapi.data.model.NamedApiResource
+import com.example.pokeapi.data.model.Pokemon
+import com.example.pokeapi.data.model.PokemonResponse
 import com.example.pokeapi.data.remote.PokemonDataSource
-/*import io.mockk.every
+import io.mockk.coEvery
 import io.mockk.mockk
+import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test*/
+import org.junit.jupiter.api.Test
 
-class PokemonRepositoryImpTest {
-/*    private lateinit var mockDataSource: PokemonDataSource
-    private lateinit var pokemonRepository: PokemonRepository*/
-/*
+class PokemonRepositoryImpTests {
+    private val testDispatcher = UnconfinedTestDispatcher()
+    private val testScope = TestScope(testDispatcher)
+
+    private lateinit var mockDataSource: PokemonDataSource
+    private lateinit var pokemonRepository: PokemonRepository
+
     @BeforeEach
     fun setup() {
         mockDataSource = mockk()
-        pokemonRepository = PokemonRepositoryImp(mockDataSource)
+        pokemonRepository = PokemonRepositoryImp(mockDataSource, testDispatcher)
     }
 
     @Test
-    fun `getPokemonList should return expected result`() = runBlocking {
+    fun `getPokemonList should return expected result`() = testScope.runTest {
         // Given
         val pokemonList = listOf(
             Pokemon("Pikachu", "Electric"),
@@ -28,8 +35,10 @@ class PokemonRepositoryImpTest {
             Pokemon("Charmander", "Fire")
         )
 
-        val expectedResponse = PokemonResponse(results = pokemonList, status = "Success")
-        every { mockDataSource.getPokemonList() } returns expectedResponse
+        val expectedResponse = PokemonResponse(results = pokemonList, status = "Success", apiResults = listOf(
+            NamedApiResource(name = "", url ="")
+        ))
+        coEvery { mockDataSource.getPokemonList() } returns expectedResponse
 
         // When
         val result = pokemonRepository.getPokemonList()
@@ -37,34 +46,4 @@ class PokemonRepositoryImpTest {
         // Then
         assertEquals(expectedResponse, result)
     }
-
-    @Test
-    fun `getPokemonDetails should return expected result`() = runBlocking {
-        // Given
-        val pokemonName = "Pikachu"
-        val expectedResponse = PokemonDetail(
-            id = 25,
-            name = "Pikachu",
-            baseExperience = 112,
-            height = 4,
-            isDefault = true,
-            order = 35,
-            weight = 60,
-            abilities = listOf(PokemonAbility(isHidden = false, slot = 1)),
-            moves = listOf(PokemonMove(versionGroupDetails = listOf(PokemonMoveVersion(levelLearnedAt = 10)))),
-            stats = listOf(PokemonStat(effort = 0, baseStat = 35)),
-            types = listOf(PokemonType(slot = 1)),
-            sprites = Sprites(
-                back_default = "back_default_url",
-                front_default = "front_default_url"
-            )
-        )
-        every { mockDataSource.getPokemonDetails(pokemon = pokemonName) } returns expectedResponse
-
-        // When
-        val result = pokemonRepository.getPokemonDetails(pokemonName)
-
-        // Then
-        assertEquals(expectedResponse, result)
-    }*/
 }
