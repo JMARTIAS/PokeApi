@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pokeapi.ui.PokemonDetailFragment">
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="408dp"
+        android:layout_height="157dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_background"
+            android:layout_width="match_parent"
+            android:layout_height="122dp" />
+
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="130dp"
+        android:layout_height="192dp"
+        android:clipToPadding="true"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/img_pokemon"
+            android:layout_width="127dp"
+            android:layout_height="189dp"
+            android:layout_gravity="left"
+            android:scaleType="fitCenter" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="390dp" />
+
+    <TextView
+        android:id="@+id/txt_pokemon_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Pokemon Detail"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Pokemon Detail" />
+
+
+    <TextView
+        android:id="@+id/txt_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:text="Status"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_weight"
+        tools:text="Stats:"></TextView>
+
+    <TextView
+        android:id="@+id/txt_hp"
+        android:layout_width="28dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:text="HP:"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_stats" />
+
+    <TextView
+        android:id="@+id/txt_attack_value"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/txt_attack"
+        app:layout_constraintTop_toBottomOf="@+id/txt_defense_value"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txt_attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:text="Attack:"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_defense" />
+
+    <TextView
+        android:id="@+id/txt_hp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_defense_value"
+        app:layout_constraintStart_toEndOf="@+id/txt_hp"
+        app:layout_constraintTop_toTopOf="@+id/txt_hp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txt_defense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="4dp"
+        android:text="Defense:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_hp" />
+
+    <TextView
+        android:id="@+id/text_pokemon_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/text_moves"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Moves:"
+        android:textSize="20sp"
+        android:textStyle=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_pokemon_name" />
+
+
+    <TextView
+        android:id="@+id/txt_weight"
+        android:layout_width="47dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:text="Weight:"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_element"
+        tools:text="Weight:" />
+
+    <TextView
+        android:id="@+id/txt_height"
+        android:layout_width="47dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:text="Height:"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_element"
+        tools:text="Height:" />
+
+    <TextView
+        android:id="@+id/txt_height_value"
+        android:layout_width="42dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_weight_value"
+        app:layout_constraintStart_toEndOf="@+id/txt_height"
+        app:layout_constraintTop_toBottomOf="@+id/txt_element_value"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txt_weight_value"
+        android:layout_width="42dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_hp_value"
+        app:layout_constraintStart_toEndOf="@+id/txt_weight"
+        app:layout_constraintTop_toBottomOf="@+id/txt_element_value"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <TextView
+        android:id="@+id/txt_element"
+        android:layout_width="65dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="40dp"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/black"
+        android:gravity="center"
+        android:text="Element:"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        tools:text="Element:" />
+
+    <TextView
+        android:id="@+id/txt_element_value"
+        android:layout_width="171dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/txt_element"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/txt_defense_value"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_hp_value"
+        app:layout_constraintStart_toEndOf="@+id/txt_defense"
+        app:layout_constraintTop_toBottomOf="@+id/txt_attack_value"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <TextView
+        android:id="@+id/txt_moves_names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Moves"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_moves"
+        tools:text="" />
+</androidx.constraintlayout.widget.ConstraintLayout>
